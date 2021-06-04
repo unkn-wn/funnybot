@@ -1,0 +1,16 @@
+{
+  "name": "autoreply",
+  "version": "1.0.0",
+  "description": "autoreply",
+  "main": "index.js",
+  "scripts": {
+    "test": "im"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "eris": "^0.15.1",
+    "express": "^4.17.1"
+  }
+}
