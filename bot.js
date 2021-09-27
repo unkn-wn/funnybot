@@ -1,6 +1,6 @@
 const eris = require('eris');
 
-const BOT_ID = "bot id here";
+const BOT_ID = "[bot api key here]";
 
 const bot = new eris.Client(BOT_ID);
 console.log("Running... ");
@@ -26,6 +26,9 @@ bot.on('messageCreate', async (msg) => {
 	const botWasMentioned = msg.mentions.find(
 		mentionedUser => mentionedUser.id === bot.user.id,
 	);
+
+	if(msg.author.bot) return;
+	if(msg.author.id==bot.user.id) return;
 	
 	if(botWasMentioned){
 		await sleep(3000);
@@ -33,9 +36,6 @@ bot.on('messageCreate', async (msg) => {
 		return;
 	}
 	
-	if(msg.author.id==bot.user.id) return;
-	
-
 
 	//////// Ignore any message that doesn't start with the correct prefix. 
 	if (!(content.toLowerCase().includes(" im "))&&!(content.toLowerCase().includes(" i'm "))&&!(content.toLowerCase().includes(" i’m "))&&!(content.toLowerCase().includes(" i am "))&&!(content.toLowerCase().startsWith("i'm "))&&!(content.toLowerCase().startsWith("im "))&&!(content.toLowerCase().startsWith("i’m "))&&!(content.toLowerCase().startsWith("i am "))&&!(content.toLowerCase().startsWith("imagine ")) && (!(content.toLowerCase() == "i’m")&&!(content.toLowerCase() == "im")&&!(content.toLowerCase() == "i am")&&!(content.toLowerCase() == "i'm")) && (prev_user != msg.author.username)) {
