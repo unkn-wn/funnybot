@@ -1,6 +1,7 @@
 const eris = require('eris');
+import { APIKEY } from './API_KEY';
 
-const BOT_ID = "[bot api key here]";
+const BOT_ID = APIKEY;
 
 const bot = new eris.Client(BOT_ID);
 console.log("Running... ");
@@ -10,7 +11,7 @@ function sleep(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
-}   
+}
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -29,15 +30,15 @@ bot.on('messageCreate', async (msg) => {
 
 	if(msg.author.bot) return;
 	if(msg.author.id==bot.user.id) return;
-	
+
 	if(botWasMentioned){
 		await sleep(3000);
 		await msg.channel.createMessage("what");
 		return;
 	}
-	
 
-	//////// Ignore any message that doesn't start with the correct prefix. 
+
+	//////// Ignore any message that doesn't start with the correct prefix.
 	if (!(content.toLowerCase().includes(" im "))&&!(content.toLowerCase().includes(" i'm "))&&!(content.toLowerCase().includes(" i’m "))&&!(content.toLowerCase().includes(" i am "))&&!(content.toLowerCase().startsWith("i'm "))&&!(content.toLowerCase().startsWith("im "))&&!(content.toLowerCase().startsWith("i’m "))&&!(content.toLowerCase().startsWith("i am "))&&!(content.toLowerCase().startsWith("imagine ")) && (!(content.toLowerCase() == "i’m")&&!(content.toLowerCase() == "im")&&!(content.toLowerCase() == "i am")&&!(content.toLowerCase() == "i'm")) && (prev_user != msg.author.username)) {
 
 		return;
@@ -64,7 +65,7 @@ bot.on('messageCreate', async (msg) => {
 		return;
 	}
 
-	
+
 
 	const parts = content.split(' ').map(s => s.trim()).filter(s => s);
 	const parts2 = content.split(' ').map(s => s.trim().toLowerCase()).filter(s => s);
